@@ -1,7 +1,25 @@
 <html>
   <body>
     <p>
-      This is a page containing helpful information.
+      <a href="/gitweb/">Browse this repo via gitweb.</a>
+    </p>
+    <p>
+      To clone this repo, first generate an API key, which will be of the form
+      <code>[endpointUrl]#[token]</code>.
+    </p>
+    <p>
+      Then do this:
+    </p>
+    <p>
+      <code>
+        $ git clone --config remote.origin.bearertoken=[token] [endpointUrl]/git
+      </code>
+    </p>
+    <p>
+      This will only work if you are using
+      <a href="https://github.com/dwrensha/git/tree/bearertoken" target="_blank">
+        our fork of git
+      </a>.
     </p>
   </body>
 </html>

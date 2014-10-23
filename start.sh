@@ -3,9 +3,7 @@
 mkdir -p /var/git
 mkdir -p /var/lib/nginx
 mkdir -p /var/log/nginx
-mkdir -p /var/log/httpd
-mkdir -p /var/run/httpd
-
+mkdir -p /var/run
 
 cd /var/git
 git --bare init --shared
