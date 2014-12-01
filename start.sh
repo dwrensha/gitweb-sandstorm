@@ -1,9 +1,10 @@
 #! /bin/sh
 
-mkdir -p /var/git
 mkdir -p /var/lib/nginx
 mkdir -p /var/log/nginx
 mkdir -p /var/run
+
+mkdir -p /var/git
 
 cd /var/git
 git --bare init --shared
