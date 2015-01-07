@@ -14,7 +14,7 @@ const pkgdef :Spk.PackageDefinition = (
     appVersion = 0,  # Increment this for every release.
 
     actions = [
-      ( title = (defaultText = "New Git Repository"),
+      ( title = (defaultText = "New GitWeb Repository"),
         command = .startCommand
       )
     ],

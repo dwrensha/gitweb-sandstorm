@@ -13,6 +13,10 @@ git --bare init --shared
 git config --file config http.receivepack true
 git update-server-info
 
+cat > description << __EOF__
+A git repository hosted in a Sandstorm grain.
+__EOF__
+
 cat config
 
 cd /
