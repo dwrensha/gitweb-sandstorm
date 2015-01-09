@@ -23,6 +23,7 @@ start.sh
 usr/bin/busybox
 usr/bin/fcgiwrap
 usr/bin/git
+usr/bin/gzip
 usr/bin/nginx
 usr/bin/perl
 usr/bin/sh
