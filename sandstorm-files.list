@@ -19,6 +19,7 @@ srv/http/gitweb/indextext.html
 srv/http/gitweb/static/git-logo.png
 srv/http/gitweb/static/gitweb.css
 srv/http/gitweb/static/gitweb.js
+srv/http/gitweb/webkey.png
 start.sh
 usr/bin/busybox
 usr/bin/fcgiwrap
