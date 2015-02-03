@@ -11,7 +11,7 @@ const pkgdef :Spk.PackageDefinition = (
   # your keyring. All updates must be signed with the same key.
 
   manifest = (
-    appVersion = 0,  # Increment this for every release.
+    appVersion = 1,  # Increment this for every release.
 
     actions = [
       ( title = (defaultText = "New GitWeb Repository"),
