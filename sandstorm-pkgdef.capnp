@@ -1,9 +1,7 @@
 @0xdd64070b2a0a30f9;
 
 using Spk = import "/sandstorm/package.capnp";
-# This imports:
-#   $SANDSTORM_HOME/latest/usr/include/sandstorm/package.capnp
-# Check out that file to see the full, documented package definition format.
+using Util = import "/sandstorm/util.capnp";
 
 const pkgdef :Spk.PackageDefinition = (
   id = "6va4cjamc21j0znf5h5rrgnv0rpyvh1vaxurkrgknefvj0x63ash",
@@ -11,6 +9,7 @@ const pkgdef :Spk.PackageDefinition = (
   # your keyring. All updates must be signed with the same key.
 
   manifest = (
+    appTitle = (defaultText = "gitweb"),
     appVersion = 1,  # Increment this for every release.
 
     actions = [
@@ -37,21 +36,18 @@ const pkgdef :Spk.PackageDefinition = (
   alwaysInclude = []
 );
 
-const startCommand :Spk.Manifest.Command = (
-  # Here we define the command used to start up your server.
-  argv = ["/sandstorm-http-bridge", "10000", "--", "/bin/sh", "start.sh"],
-  environ = [
-    # Note that this defines the *entire* environment seen by your app.
+const commandEnvironment : List(Util.KeyValue) =
+  [
     (key = "PATH", value = "/usr/local/bin:/usr/bin:/bin")
-  ]
+  ];
+
+const startCommand :Spk.Manifest.Command = (
+  argv = ["/sandstorm-http-bridge", "10000", "--", "/bin/sh", "start.sh"],
+  environ = .commandEnvironment
 );
 
 
 const continueCommand :Spk.Manifest.Command = (
-  # Here we define the command used to start up your server.
   argv = ["/sandstorm-http-bridge", "10000", "--", "/bin/sh", "continue.sh"],
-  environ = [
-    # Note that this defines the *entire* environment seen by your app.
-    (key = "PATH", value = "/usr/local/bin:/usr/bin:/bin")
-  ]
+  environ = .commandEnvironment
 );

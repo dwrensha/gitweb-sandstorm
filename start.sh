@@ -11,6 +11,7 @@ mkdir -p /var/repo.git
 cd /var/repo.git
 git --bare init --shared
 git config --file config http.receivepack true
+git config --file config receive.denyNonFastForwards false
 git update-server-info
 
 cat > description << __EOF__
