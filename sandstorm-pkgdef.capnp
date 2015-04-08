@@ -33,7 +33,14 @@ const pkgdef :Spk.PackageDefinition = (
 
   fileList = "sandstorm-files.list",
 
-  alwaysInclude = []
+  alwaysInclude = [],
+
+  bridgeConfig = (
+    viewInfo = (
+      permissions = [(name = "read"), (name = "write")],
+      roles = []
+    )
+  )
 );
 
 const commandEnvironment : List(Util.KeyValue) =
