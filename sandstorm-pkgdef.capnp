@@ -38,7 +38,10 @@ const pkgdef :Spk.PackageDefinition = (
   bridgeConfig = (
     viewInfo = (
       permissions = [(name = "read"), (name = "write")],
-      roles = []
+      roles = [(title = (defaultText = "reader"),
+                permissions = [true, false]),
+               (title = (defaultText = "writer"),
+                permissions = [true, true])]
     )
   )
 );
