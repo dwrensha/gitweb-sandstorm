@@ -10,7 +10,8 @@ const pkgdef :Spk.PackageDefinition = (
 
   manifest = (
     appTitle = (defaultText = "gitweb"),
-    appVersion = 1,  # Increment this for every release.
+    appVersion = 2,  # Increment this for every release.
+    appMarketingVersion = (defaultText = "0.0.2"),
 
     actions = [
       ( title = (defaultText = "New GitWeb Repository"),
@@ -37,13 +38,16 @@ const pkgdef :Spk.PackageDefinition = (
 
   bridgeConfig = (
     viewInfo = (
-      permissions = [(name = "read"), (name = "write")],
+      permissions = [(name = "read", title = (defaultText = "read"),
+                      description = (defaultText = "allows `git fetch`")),
+                     (name = "write", title = (defaultText = "write"),
+                      description = (defaultText = "allows `git push`"))],
       roles = [(title = (defaultText = "guest"),
                 permissions = [true, false],
-                verbPhrase = (defaultText = "can fetch")),
+                verbPhrase = (defaultText = "can read")),
                (title = (defaultText = "developer"),
                 permissions = [true, true],
-                verbPhrase = (defaultText = "can fetch and push"))]
+                verbPhrase = (defaultText = "can read and write"))]
     )
   )
 );
