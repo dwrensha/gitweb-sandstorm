@@ -48,7 +48,8 @@ const pkgdef :Spk.PackageDefinition = (
                (title = (defaultText = "developer"),
                 permissions = [true, true],
                 verbPhrase = (defaultText = "can read and write"))]
-    )
+    ),
+    apiPath = "/repo.git/"
   )
 );
 
