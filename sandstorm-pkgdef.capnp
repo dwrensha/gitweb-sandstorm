@@ -9,7 +9,7 @@ const pkgdef :Spk.PackageDefinition = (
   # your keyring. All updates must be signed with the same key.
 
   manifest = (
-    appTitle = (defaultText = "gitweb"),
+    appTitle = (defaultText = "GitWeb"),
     appVersion = 2,  # Increment this for every release.
     appMarketingVersion = (defaultText = "0.0.2"),
 
