@@ -10,8 +10,8 @@ const pkgdef :Spk.PackageDefinition = (
 
   manifest = (
     appTitle = (defaultText = "GitWeb"),
-    appVersion = 2,  # Increment this for every release.
-    appMarketingVersion = (defaultText = "0.0.2"),
+    appVersion = 3,  # Increment this for every release.
+    appMarketingVersion = (defaultText = "0.0.3"),
 
     actions = [
       ( title = (defaultText = "New GitWeb Repository"),
@@ -47,7 +47,8 @@ const pkgdef :Spk.PackageDefinition = (
                 verbPhrase = (defaultText = "can read")),
                (title = (defaultText = "developer"),
                 permissions = [true, true],
-                verbPhrase = (defaultText = "can read and write"))]
+                verbPhrase = (defaultText = "can read and write"),
+                default = true)]
     ),
     apiPath = "/repo.git/"
   )
