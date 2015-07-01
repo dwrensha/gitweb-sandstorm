@@ -20,6 +20,10 @@ use File::Basename qw(basename);
 use Time::HiRes qw(gettimeofday tv_interval);
 binmode STDOUT, ':utf8';
 
+if (!defined($CGI::VERSION) || $CGI::VERSION < 4.08) {
+	eval 'sub CGI::multi_param { CGI::param(@_) }'
+}
+
 our $t0 = [ gettimeofday() ];
 our $number_of_git_cmds = 0;
 
@@ -27,7 +31,7 @@ BEGIN {
 	CGI->compile() if $ENV{'MOD_PERL'};
 }
 
-our $version = "2.1.2";
+our $version = "2.4.5";
 
 our ($my_url, $my_uri, $base_url, $path_info, $home_link);
 sub evaluate_uri {
@@ -871,7 +875,7 @@ sub evaluate_query_params {
 
 	while (my ($name, $symbol) = each %cgi_param_mapping) {
 		if ($symbol eq 'opt') {
-			$input_params{$name} = [ map { decode_utf8($_) } $cgi->param($symbol) ];
+			$input_params{$name} = [ map { decode_utf8($_) } $cgi->multi_param($symbol) ];
 		} else {
 			$input_params{$name} = decode_utf8($cgi->param($symbol));
 		}
@@ -4100,7 +4104,7 @@ sub print_search_form {
 	if ($use_pathinfo) {
 		$action .= "/".esc_url($project);
 	}
-	print $cgi->startform(-method => "get", -action => $action) .
+	print $cgi->start_form(-method => "get", -action => $action) .
 	      "<div class=\"search\">\n" .
 	      (!$use_pathinfo &&
 	      $cgi->input({-name=>"p", -value=>$project, -type=>"hidden"}) . "\n") .
@@ -5510,7 +5514,7 @@ sub git_project_search_form {
 	}
 
 	print "<div class=\"projsearch\">\n";
-	print $cgi->startform(-method => 'get', -action => $my_uri) .
+	print $cgi->start_form(-method => 'get', -action => $my_uri) .
 	      $cgi->hidden(-name => 'a', -value => 'project_list')  . "\n";
 	print $cgi->hidden(-name => 'pf', -value => $project_filter). "\n"
 		if (defined $project_filter);

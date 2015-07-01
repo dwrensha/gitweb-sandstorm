@@ -1,6 +1,6 @@
 #! /bin/sh
 
-set -x
+set -xe
 
 fcgiwrap -f -s tcp:127.0.0.1:9000 &
 

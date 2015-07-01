@@ -1,6 +1,6 @@
 #! /bin/sh
 
-set -x
+set -xe
 
 mkdir -p /var/lib/nginx
 mkdir -p /var/log/nginx
