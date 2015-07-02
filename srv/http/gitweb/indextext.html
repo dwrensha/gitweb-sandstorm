@@ -1,31 +1,12 @@
-<p>
-  To access this repository from a git client, first
-  generate a webkey by clicking the icon on the Sandstorm top bar.
-  The webkey will be of the form
-  <code>&lt;endpointUrl&gt;#&lt;token&gt;</code>.
-  The repository will then be available at
-  &lt;endpointUrl&gt;,
-  protected by &lt;token&gt; as a password. You can use any username.
-  The token not only provides authorization but also identifies this specific GitWeb instance.
-</p>
-<a href="/webkey.png">
-  <img src="webkey.png" height="100px" title="how to get a webkey" alt="how to get a webkey"></img>
-</a>
-<p>
-  For example, if endpointUrl is https://api.sandstorm.example.com and you want to name your
-  repo "my_repo", you could do this, entering the token when prompted for a password:
-</p>
-<p>
-  <code>
-    $ git clone https://my_repo@api.sandstorm.example.com my_repo
-  </code>
-</p>
-<p>
-  Note that we've included "my_repo" here as the username. This is so that if
-  you use a git credential helper, it will be able to distinguish this repository
-  from other repositories
-  also hosted at https://api.sandstorm.example.com.
-</p>
+<div>
+  <iframe id="offer-iframe"></iframe>
+</div>
+<style>
+  #offer-iframe {
+   width: 100%;
+   height: 50px;
+  }
+</style>
 <script type="text/javascript">
 document.addEventListener("DOMContentLoaded", function(event) {
 var nodeList = document.querySelectorAll(".projsearch");
@@ -34,6 +15,25 @@ console.error("expected exactly one node with class '.projsearch'; found " + nod
 return;
 }
 nodeList[0].style.display = "none";
+
+var messageListener = function(event) {
+  if (event.data.rpcId === "0") {
+    if (event.data.error) {
+      console.log("ERROR: " + event.data.error);
+    } else {
+      var el = document.getElementById("offer-iframe");
+      el.setAttribute("src", event.data.uri);
+    }
+  }
+};
+window.addEventListener("message", messageListener);
+var template =
+ "# To add this grain as a remote to your existing repo: \n" +
+ "git remote add origin https://any_username:$API_TOKEN@$API_HOST/\n" +
+ "git push -u origin master\n";
+window.parent.postMessage({renderTemplate: {rpcId: "0", template: template}}, "*");
+
+
 });
 
 </script>
