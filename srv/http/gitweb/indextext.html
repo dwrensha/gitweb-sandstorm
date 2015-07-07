@@ -29,7 +29,7 @@ var messageListener = function(event) {
 window.addEventListener("message", messageListener);
 var template =
  "# To add this grain as a remote to your existing repo: \n" +
- "git remote add origin https://any_username:$API_TOKEN@$API_HOST/\n" +
+ "git remote add origin " + window.location.protocol + "//any_username:$API_TOKEN@$API_HOST/\n" +
  "git push -u origin master\n";
 window.parent.postMessage({renderTemplate: {rpcId: "0", template: template}}, "*");
 
