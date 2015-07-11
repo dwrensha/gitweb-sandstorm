@@ -29,8 +29,9 @@ if (window.crypto) {
 
 window.addEventListener("message", messageListener);
 var template =
- "Your repo is available at " + window.location.protocol + "//" + username + "@$API_HOST/\n" +
- "protected by the password $API_TOKEN"
+  "Your repo is available at this URL:\n" +
+  window.location.protocol + "//" + username + "@$API_HOST/\n" +
+  "protected by this password:\n$API_TOKEN\n";
 window.parent.postMessage({renderTemplate: {rpcId: "0", template: template}}, "*");
 
 });
