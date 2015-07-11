@@ -17,6 +17,7 @@ sandstorm-http-bridge-config
 sandstorm-manifest
 srv/http/gitweb/gitweb.cgi
 srv/http/gitweb/indextext.html
+srv/http/gitweb/sandstorm.js
 srv/http/gitweb/static/git-logo.png
 srv/http/gitweb/static/gitweb.css
 srv/http/gitweb/static/gitweb.js
