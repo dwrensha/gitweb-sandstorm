@@ -10,8 +10,8 @@ const pkgdef :Spk.PackageDefinition = (
 
   manifest = (
     appTitle = (defaultText = "GitWeb"),
-    appVersion = 3,  # Increment this for every release.
-    appMarketingVersion = (defaultText = "0.0.3"),
+    appVersion = 4,  # Increment this for every release.
+    appMarketingVersion = (defaultText = "0.0.4"),
 
     actions = [
       ( title = (defaultText = "New GitWeb Repository"),

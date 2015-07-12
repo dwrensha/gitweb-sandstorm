@@ -31,7 +31,7 @@ window.addEventListener("message", messageListener);
 var template =
   "Your repo is available at this URL:\n" +
   window.location.protocol + "//" + username + "@$API_HOST/\n" +
-  "protected by this password:\n$API_TOKEN\n";
+  "with this password:\n$API_TOKEN\n";
 window.parent.postMessage({renderTemplate: {rpcId: "0", template: template}}, "*");
 
 });
