@@ -30,7 +30,7 @@ if (window.crypto) {
 window.addEventListener("message", messageListener);
 var template =
     "echo url=" + window.location.protocol + "//" + username + ":$API_TOKEN@$API_HOST/ | git credential approve\n" +
-    "git clone -c credential.helper=store " + window.location.protocol + "//" + username + "@$API_HOST/ repo_cloned_from_sandstorm\n";
+    "git clone -c credential.helper=store " + window.location.protocol + "//" + username + "@$API_HOST/ repo_" + username + "_RENAME_ME\n";
 window.parent.postMessage({renderTemplate: {rpcId: "0", template: template}}, "*");
 
 });
