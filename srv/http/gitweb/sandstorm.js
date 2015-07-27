@@ -29,8 +29,9 @@ if (window.crypto) {
 
 window.addEventListener("message", messageListener);
 var template =
-    "echo url=" + window.location.protocol + "//" + username + ":$API_TOKEN@$API_HOST/ | git credential approve\n" +
-    "git clone -c credential.helper=store " + window.location.protocol + "//" + username + "@$API_HOST/ repo_" + username + "_RENAME_ME\n";
+    "echo url=" + window.location.protocol + "//" + username + ":$API_TOKEN@$API_HOST/ |" +
+    " git -c credential.helper=store credential approve\n" +
+    "git -c credential.helper=store clone " + window.location.protocol + "//" + username + "@$API_HOST/ repo_" + username + "_RENAME_ME\n";
 window.parent.postMessage({renderTemplate: {rpcId: "0", template: template}}, "*");
 
 });
