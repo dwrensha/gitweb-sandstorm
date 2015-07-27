@@ -29,9 +29,8 @@ if (window.crypto) {
 
 window.addEventListener("message", messageListener);
 var template =
-  "Your repo is available at this URL:\n" +
-  window.location.protocol + "//" + username + "@$API_HOST/\n" +
-  "with this password:\n$API_TOKEN\n";
+    "echo url=" + window.location.protocol + "//" + username + ":$API_TOKEN@$API_HOST/ | git credential approve\n" +
+    "git clone -c credential.helper=store " + window.location.protocol + "//" + username + "@$API_HOST/ repo_cloned_from_sandstorm\n";
 window.parent.postMessage({renderTemplate: {rpcId: "0", template: template}}, "*");
 
 });
