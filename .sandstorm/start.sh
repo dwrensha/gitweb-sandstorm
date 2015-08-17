@@ -22,4 +22,4 @@ cat config
 
 cd /
 
-source continue.sh
+/continue.sh
