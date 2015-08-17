@@ -12,6 +12,7 @@ const pkgdef :Spk.PackageDefinition = (
     appTitle = (defaultText = "GitWeb"),
     appVersion = 5,  # Increment this for every release.
     appMarketingVersion = (defaultText = "0.0.5"),
+    metadata = .metadata,
 
     actions = [
       ( title = (defaultText = "New GitWeb Repository"),
@@ -68,4 +69,19 @@ const startCommand :Spk.Manifest.Command = (
 const continueCommand :Spk.Manifest.Command = (
   argv = ["/sandstorm-http-bridge", "10000", "--", "/bin/sh", "continue.sh"],
   environ = .commandEnvironment
+);
+
+const metadata :Spk.Metadata = (
+  website = "http://git-scm.com/docs/gitweb",
+  codeUrl = "https://github.com/dwrensha/gitweb-sandstorm",
+  license = (openSource = gpl2),
+  categories = [developerTools,],
+  author = (
+    upstreamAuthor = "Christian Gierke and Kay Sievers",
+    contactEmail = "david@sandstorm.io",
+    pgpSignature = embed "pgp-signature",
+  ),
+  pgpKeyring = embed "keyring",
+  description = (defaultText = ""),
+  shortDescription = (defaultText = ""),
 );
