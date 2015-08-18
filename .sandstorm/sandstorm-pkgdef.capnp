@@ -72,6 +72,11 @@ const continueCommand :Spk.Manifest.Command = (
 );
 
 const metadata :Spk.Metadata = (
+  icons = (
+    appGrid = (svg = embed "app-graphics/gitweb-128.svg"),
+    grain = (svg = embed "app-graphics/gitweb-24.svg"),
+    market = (svg = embed "app-graphics/gitweb-150.svg"),
+  ),
   website = "http://git-scm.com/docs/gitweb",
   codeUrl = "https://github.com/dwrensha/gitweb-sandstorm",
   license = (openSource = gpl2),
@@ -82,6 +87,8 @@ const metadata :Spk.Metadata = (
     pgpSignature = embed "pgp-signature",
   ),
   pgpKeyring = embed "keyring",
-  description = (defaultText = ""),
-  shortDescription = (defaultText = ""),
+  description = (defaultText = embed "description.md"),
+  shortDescription = (defaultText = embed "shortDescription.txt"),
+  screenshots = [(width = 448, height = 288, png = embed "screenshot.png")],
+  changeLog = (defaultText = embed "changeLog.md"),
 );
