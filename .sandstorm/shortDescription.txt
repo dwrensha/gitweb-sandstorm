@@ -1,1 +1,1 @@
-A simple wrapper around GitWeb and git-http-backend, providing an extremely lightweight way to host a web-browsable Git repository.
+A simple wrapper around git-http-backend and GitWeb, providing an extremely lightweight way to host a web-browsable Git repository.

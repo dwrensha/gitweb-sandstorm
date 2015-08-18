@@ -10,9 +10,29 @@ const pkgdef :Spk.PackageDefinition = (
 
   manifest = (
     appTitle = (defaultText = "GitWeb"),
-    appVersion = 5,  # Increment this for every release.
-    appMarketingVersion = (defaultText = "0.0.5"),
-    metadata = .metadata,
+    appVersion = 6,  # Increment this for every release.
+    appMarketingVersion = (defaultText = "0.0.6"),
+    metadata = (
+      icons = (
+        appGrid = (svg = embed "app-graphics/gitweb-128.svg"),
+        grain = (svg = embed "app-graphics/gitweb-24.svg"),
+        market = (svg = embed "app-graphics/gitweb-150.svg"),
+      ),
+      website = "http://git-scm.com/docs/gitweb",
+      codeUrl = "https://github.com/dwrensha/gitweb-sandstorm",
+      license = (openSource = gpl2),
+      categories = [developerTools,],
+      author = (
+        upstreamAuthor = "Christian Gierke and Kay Sievers",
+        contactEmail = "david@sandstorm.io",
+        pgpSignature = embed "pgp-signature",
+      ),
+      pgpKeyring = embed "keyring",
+      description = (defaultText = embed "description.md"),
+      shortDescription = (defaultText = embed "shortDescription.txt"),
+      screenshots = [(width = 448, height = 288, png = embed "screenshot.png")],
+      changeLog = (defaultText = embed "changeLog.md"),
+    ),
 
     actions = [
       ( title = (defaultText = "New GitWeb Repository"),
@@ -69,26 +89,4 @@ const startCommand :Spk.Manifest.Command = (
 const continueCommand :Spk.Manifest.Command = (
   argv = ["/sandstorm-http-bridge", "10000", "--", "/bin/sh", "continue.sh"],
   environ = .commandEnvironment
-);
-
-const metadata :Spk.Metadata = (
-  icons = (
-    appGrid = (svg = embed "app-graphics/gitweb-128.svg"),
-    grain = (svg = embed "app-graphics/gitweb-24.svg"),
-    market = (svg = embed "app-graphics/gitweb-150.svg"),
-  ),
-  website = "http://git-scm.com/docs/gitweb",
-  codeUrl = "https://github.com/dwrensha/gitweb-sandstorm",
-  license = (openSource = gpl2),
-  categories = [developerTools,],
-  author = (
-    upstreamAuthor = "Christian Gierke and Kay Sievers",
-    contactEmail = "david@sandstorm.io",
-    pgpSignature = embed "pgp-signature",
-  ),
-  pgpKeyring = embed "keyring",
-  description = (defaultText = embed "description.md"),
-  shortDescription = (defaultText = embed "shortDescription.txt"),
-  screenshots = [(width = 448, height = 288, png = embed "screenshot.png")],
-  changeLog = (defaultText = embed "changeLog.md"),
 );
