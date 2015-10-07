@@ -29,7 +29,7 @@ const pkgdef :Spk.PackageDefinition = (
       ),
       pgpKeyring = embed "keyring",
       description = (defaultText = embed "description.md"),
-      shortDescription = (defaultText = embed "shortDescription.txt"),
+      shortDescription = (defaultText = "Git hosting"),
       screenshots = [(width = 448, height = 288, png = embed "screenshot.png")],
       changeLog = (defaultText = embed "changeLog.md"),
     ),
