@@ -1,3 +1,7 @@
+### v0.0.8 (2016-06-11)
+- Use new sandstorm-http-bridge. Large downloads should no longer consume large amounts of RAM.
+### v0.0.7 (2015-10-06)
+- Tweak some app metadata.
 ### v0.0.6 (2015-08-18)
 - Switch to vagrant-spk for packaging.
 - Add App Market metadata.
