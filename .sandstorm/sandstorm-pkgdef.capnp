@@ -10,8 +10,8 @@ const pkgdef :Spk.PackageDefinition = (
 
   manifest = (
     appTitle = (defaultText = "GitWeb"),
-    appVersion = 9,  # Increment this for every release.
-    appMarketingVersion = (defaultText = "0.0.9"),
+    appVersion = 10,  # Increment this for every release.
+    appMarketingVersion = (defaultText = "0.0.10"),
     metadata = (
       icons = (
         appGrid = (svg = embed "app-graphics/gitweb-128.svg"),
@@ -24,8 +24,8 @@ const pkgdef :Spk.PackageDefinition = (
       categories = [developerTools,],
       author = (
         upstreamAuthor = "Christian Gierke and Kay Sievers",
-        contactEmail = "david@sandstorm.io",
-        pgpSignature = embed "pgp-signature",
+        contactEmail = "abliss@gmail.com",
+        pgpSignature = embed "pgp-signature-abliss",
       ),
       pgpKeyring = embed "keyring",
       description = (defaultText = embed "description.md"),
