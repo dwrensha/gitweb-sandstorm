@@ -4,6 +4,16 @@
 <div>
   <iframe id="offer-iframe"></iframe>
 </div>
+<p>
+  Any push to the <tt>gw-pages</tt> branch will be automatically published at
+  this grain's public url, which will be printed when you push. To unpublish,
+  push an empty tree to <tt>gw-pages</tt>.
+  <form action="publish.cgi">
+    If you forgot the public url, or want to manually re-publish
+    the <tt>gw-pages</tt> branch for some reason, click this
+    button: <button>Publish</button>
+  </form>    
+</p>
 <style>
   #offer-iframe {
    width: 100%;
