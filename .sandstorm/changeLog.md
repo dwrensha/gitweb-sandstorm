@@ -1,3 +1,6 @@
+### v0.0.10 (2020-01-25)
+- Upgrade git to version 2.17.1
+- Add static publishing of `gw-pages` branch
 ### v0.0.9 (2016-06-27)
 - Use new sandstorm-http-bridge that fixes memory corruption problem in previous version.
 ### v0.0.8 (2016-06-11)
